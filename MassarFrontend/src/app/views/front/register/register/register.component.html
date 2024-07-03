@@ -1,0 +1,101 @@
+
+
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
+            style="background:url(assets/images/big/auth-bg.jpg) no-repeat center center;">
+            <div class="auth-box row text-center">
+                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(assets/login/images/signin3.jpg);">
+                </div>
+                <div class="col-lg-5 col-md-7 bg-white">
+                    <div class="p-3">
+                        <img src="assets/dashboard/assets/images/big/icon.png" width="40" height="30"  alt="wrapkit">
+                        <img src="assets/dashboard2/images/logo.jpg" width="130" height="40" alt="wrapkit">
+                        <h2 class="mt-3 text-center"></h2>
+                        <div *ngIf="successMessage" class="alert alert-success mt-3 text-center">
+                            {{ successMessage }} <a routerLink="/signin" class="alert-link">Sign In</a>
+                        </div>
+                        <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+                            {{ errorMessage }}
+                        </div>
+                        <form [formGroup]="registerForm"  (ngSubmit)="onSubmitSignup()" class="mt-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input type="text" formControlName="firstname"  id="name" placeholder="Your Name" />
+                                        <div class="text-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.invalid">
+                                            <small *ngIf="registerForm.get('firstname')?.hasError('required')">First Name is required</small>
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                     <div class="form-group">
+                                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                         <input type="text" formControlName="lastname"  id="name" placeholder="Your LastName" />
+                                         <div class="text-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.invalid">
+                                                 <small *ngIf="registerForm.get('lastname')?.hasError('required')">Last Name is  required</small>
+                                         </div>
+                                     </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                        <input type="email" formControlName="email"  id="email" placeholder="Your Email" />
+                                        <div class="text-danger" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+                                             <small *ngIf="registerForm.get('email')?.hasError('required')">Email is required</small>
+                                             <small *ngIf="registerForm.get('email')?.hasError('email')">Email is invalid</small>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                        <input type="password" formControlName="password" id="pass" placeholder="Password" />
+                                        <div class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+                                             <small *ngIf="registerForm.get('password')?.hasError('required')">Password is  required</small>
+                                            <small *ngIf="registerForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="age"><i class="zmdi zmdi-account-box-phone"></i></label>
+                                        <input type="number" formControlName="age" id="age" placeholder="Your Age" />
+                                        <div class="text-danger" *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.invalid">
+                                            <small *ngIf="registerForm.get('age')?.hasError('required')">Age is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="tel"><i class="zmdi zmdi-phone"></i></label>
+                                        <input type="tel" formControlName="tel" id="tel" placeholder="Your Phone Number" />
+                                        <div class="text-danger" *ngIf="registerForm.get('tel')?.touched && registerForm.get('tel')?.invalid">
+                                            <small *ngIf="registerForm.get('tel')?.hasError('required')">Phone Number is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="address"><i class="zmdi zmdi-pin"></i></label>
+                                        <input type="text" formControlName="address" id="address" placeholder="Your Address" />
+                                        <div class="text-danger" *ngIf="registerForm.get('address')?.touched && registerForm.get('address')?.invalid">
+                                            <small *ngIf="registerForm.get('address')?.hasError('required')">Address is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                               
+                                <div class="col-lg-12 text-center">
+                                    <button type="submit" class="btn btn-block btn-dark">Sign Up</button>
+                                </div>
+                                <div class="col-lg-12 text-center mt-5">
+                                    Already have an account? <a routerLink="/login" class="text-danger">Sign In</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

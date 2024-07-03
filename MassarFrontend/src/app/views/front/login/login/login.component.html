@@ -1,0 +1,74 @@
+
+<div class="main-wrapper">
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center position-relative"
+            style="background:url() no-repeat center center;">
+            <div class="auth-box row text-center">
+                <div class="col-lg-7 col-md-5 modal-bg-img" style="background-image: url(assets/login/images/signin3.jpg);">
+                </div>
+                <div class="col-lg-5 col-md-7 bg-white">
+                    <div class="p-3">
+                        <img src="assets/dashboard/assets/images/big/icon.png" width="40" height="30"  alt="wrapkit">
+                        <img src="assets/dashboard2/images/logo.jpg" width="130" height="40" alt="wrapkit">
+                        <h2 class="mt-3 text-center"></h2>
+                        <div class="alert alert-danger" *ngIf="errorMessage">
+                            <p>{{errorMessage}}</p>
+                          </div>
+                        <form class="mt-4" #formLogin="ngForm" (ngSubmit)="onSubmitSingin(formLogin)">
+                            <div class="row">
+                                <div class="col-lg-12" style="margin-bottom: 20px;">
+                                    <div class="form-group">
+                                        <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                        <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        placeholder="Email Address"
+                                        ngModel
+                                        #email="ngModel"
+                                        name="email"
+                                        required
+                                        email>
+                                    </div>
+                                    <div *ngIf="email.errors && formLogin.submitted" class="text-danger">
+                                        Email is required!
+                                      </div>
+                                </div>
+                                
+                                <div class="col-lg-12" style="margin-bottom: 20px;">
+                                    <div class="form-group">
+                                        <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                        <input
+                                        type="password"
+                                        class="form-control"
+                                        id="password"
+                                        placeholder="Password"
+                                        ngModel
+                                        #password="ngModel"
+                                        name="password"
+                                        required
+                                        minlength="4">
+                                        <div *ngIf="password.errors && formLogin.submitted" class="text-danger">
+                                            <div *ngIf="password.errors['required']">Password is required</div>
+                                            <div *ngIf="password.errors['minlength']" >
+                                              Password must be at least 6 characters
+                                            </div>
+                                          </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12 text-center">
+                                    <button type="submit" class="btn btn-block btn-dark">Sign In</button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
