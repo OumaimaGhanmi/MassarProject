@@ -22,9 +22,9 @@ export class RandonneurServService {
     return this.http.get<Randonneur[]>(url)
   }
   //operation addRandonneur
-  addUser(u:any) {
-    const url=this.baseUrl+"addUser"
-    return this.http.post(url,u)
+  addRandonneur(randonneur:any) {
+    const url=this.baseUrl+"addRandonneur"
+    return this.http.post(url,randonneur)
 
   }
 //operation deleteRandonneur 

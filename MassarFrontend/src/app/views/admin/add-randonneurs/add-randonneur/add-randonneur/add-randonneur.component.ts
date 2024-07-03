@@ -6,6 +6,7 @@ import { HttpClient, HttpErrorResponse, HttpEventType, HttpResponse } from '@ang
 import { Randonneur } from 'src/app/models/randonneur';
 import { RandonneurServService } from 'src/app/services/randonneur-serv.service';
 import { FileUploadServiceService } from 'src/app/services/file-upload-service.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-add-randonneur',
@@ -17,23 +18,26 @@ export class AddRandonneurComponent implements OnInit {
   
   messageErr=""
   loginForm!: UntypedFormGroup;
-errors!:string;
-idRandonneurDeleteConfirm=0
-dataRandonneur:any=[]
-user!:any
-errorMsg : string=""
-idRandonneur:any
-constructor(private randonneurService:RandonneurServService,private router:Router,private fb:UntypedFormBuilder,private http: HttpClient) { 
-    
-   
-}
+  errors!:string;
+  idRandonneurDeleteConfirm=0
+  dataRandonneur:any=[]
+  randonneur!:any
+  errorMsg : string=""
+  idRandonneur:any
+constructor(private randonneurService:RandonneurServService,private router:Router,
+            private fb:UntypedFormBuilder,private http: HttpClient) { }
 
 ngOnInit(): void {
   this.refreshRandonneursData();
   this.loginForm=this.fb.group({
-    email:["",[Validators.required,Validators.email]],
+    firstname:["",[Validators.required]],
+    lastname:["",[Validators.required]],
     password:["",[Validators.required]],
-    nom:["",[Validators.required]],
+    email:["",[Validators.required,Validators.email]],
+    age:["",[Validators.required]],
+    tel:["",[Validators.required]],
+    
+   
     adresse:["",[Validators.required]],
   })
   this.randonneurService.getRandonneur().subscribe(data=>{
@@ -58,7 +62,7 @@ add() {
 
   this.randonneurService.addRandonneur(data).subscribe(
     response => {
-      this.refreshRandonneurData();
+      this.refreshRandonneursData();
 this.ngOnInit();
     },
     (err: HttpErrorResponse) => {
@@ -76,8 +80,8 @@ this.randonneurService.deleteRandonneur( this.idRandonneurDeleteConfirm).subscri
 )
 this.randonneurService.getRandonneur().subscribe(data=>{
 
-this.dataArray=data
-this.refreshAssociationsData();
+this.dataRandonneur=data
+this.refreshRandonneursData();
 this.ngOnInit();
 })
 this.reloadData();
@@ -93,16 +97,16 @@ ConfirmDeleteRandonneur(idRandonneur:number){
 details(idUser:any){
 
 
-this.user= new RegisterRequest()
-this.randonneurService.getRandonneurById(idRandonneur).subscribe(data=>{
+this.randonneur= new User()
+this.randonneurService.getRandonneurById(this.randonneur.idRandonneur).subscribe(data=>{
   console.log(data)
-  this.user=data
-  console.log(idRandonneur)
+  this.randonneur=data
+  
   
 })
 }
-refreshAssociationsData(){
-this.ds.dispatchGetAllAssociations()
+refreshRandonneursData(){
+this.idRandonneur.dispatchGetAllAssociations()
 }
 ngOnDestroy(): void {
 this.destoyed$.next(true);
