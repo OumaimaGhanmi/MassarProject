@@ -4,5 +4,5 @@ import { Users } from "./users";
 
 export class Randonneur extends Users{
     idRandonneur!: number;
-    admin! :Admin;
+    admin ! :Admin;
 }

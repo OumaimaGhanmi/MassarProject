@@ -1,81 +1,87 @@
-body {
-    font-family: 'Arial', sans-serif;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff6f61, #ffbc67);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Center the container vertically */
 }
 
 .signin-form {
-    width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px; /* Adjust the max-width as needed */
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    color: #333;
-    font-weight: bold;
+.form-group {
+  width: 100%;
+  margin-bottom: 15px;
 }
 
-.input-group {
-    margin-bottom: 1rem;
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
-.input-group label {
-    display: block;
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border 0.3s;
-}
-
-.input-group input:focus {
-    border: 1px solid #ff6f61;
-    outline: none;
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 button {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 5px;
-    background: #ff6f61;
-    color: white;
-    font-size: 1.25rem;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
 }
 
-button:hover {
-    background: #ff3e2d;
-    transform: scale(1.05);
+
+
+.input-icon {
+  position: relative;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.input-icon i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+.input-icon input {
+  padding-left: 30px; /* Adjust based on the width of the icon */
+}
+.btn {
+padding: 10px 20px;
+border: none;
+cursor: pointer;
+font-size: 16px;
+border-radius: 5px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+
+.green-btn {
+background-color: green;
+color: white;
+}
+
+.white-btn {
+background-color: white;
+color: green;
+border: 2px solid green;
+}
+
+.green-btn i, .white-btn i {
+margin-right: 8px;
 }

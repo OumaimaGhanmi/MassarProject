@@ -5,6 +5,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 
 const routes: Routes = [
   {path:'',component:FrontLayoutComponent,children:[
+    {path:'',loadChildren:()=>import('./views/front/home/home.module').then(m=>m.HomeModule)},
     {
       path:'login',loadChildren: () => import('./views/front/login/login.module').then(m => m.LoginModule)
     },
@@ -13,9 +14,6 @@ const routes: Routes = [
     },
     {
       path:'about',loadChildren: () => import('./views/front/about/about.module').then(m =>m.AboutModule)
-    },
-    {
-      path:'addRandonneur',loadChildren: () => import('./views/admin/add-randonneurs/add-randonneur/add-randonneur.module').then(m =>m.AddRandonneurModule)
     }
    
   ]},
@@ -29,7 +27,12 @@ const routes: Routes = [
     {
       path:'GestionRandonneurs',loadChildren: () => import('./views/admin/gestion-randonneurs/gestion-randonneurs.module').then(m =>m.GestionRandonneursModule)
     },
-    
+    {
+      path:'addRandonneur',loadChildren: () => import('./views/admin/add-randonneurs/add-randonneur/add-randonneur.module').then(m =>m.AddRandonneurModule)
+    },
+    {
+      path:'editRandonneur',loadChildren: () => import('./views/admin/edit-randonneur/edit-randonneur.module').then(m =>m.EditRandonneurModule)
+    }
   ]}
 ];
 

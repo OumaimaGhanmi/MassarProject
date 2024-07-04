@@ -11,7 +11,7 @@ import { BaseURL } from './models/baseurl';
 @NgModule({
   declarations: [
     AppComponent,
-    GestionRandonneursComponent,
+   
     
   ],
   imports: [

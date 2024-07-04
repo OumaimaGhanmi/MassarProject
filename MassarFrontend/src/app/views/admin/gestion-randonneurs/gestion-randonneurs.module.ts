@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { GestionRandonneursRoutingModule } from './gestion-randonneurs-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GestionRandonneursComponent } from './gestion-randonneurs.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    GestionRandonneursComponent
+  ],
   imports: [
     CommonModule,
     GestionRandonneursRoutingModule,

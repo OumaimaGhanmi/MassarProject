@@ -1,63 +1,95 @@
 <div class="container">
     <div class="signin-form">
-
-      <form [formGroup]="loginForm" (ngSubmit)="add()">
-          <div class="form-group">
-              <label for="firstName">FirstName</label>
-              <div class="form-group">
-                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                <input type="text" formControlName="firstname"  id="name" placeholder="Your Name" />
+        <form [formGroup]="loginForm" (ngSubmit)="add()">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" formControlName="firstname" id="firstname" placeholder="Your First Name" />
+                </div>
                 <div class="text-danger" *ngIf="loginForm.get('firstname')?.touched && loginForm.get('firstname')?.invalid">
                     <small *ngIf="loginForm.get('firstname')?.hasError('required')">First Name is required</small>
-                </div> 
+                </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="lastname">LastName</label>
-            <input type="text" formControlName="lastname" id="lastname" placeholder="Your LastName" class="form-control" />
-                    <div class="text-danger" *ngIf="loginForm.get('lastname')?.touched && loginForm.get('lastname')?.invalid">
-                        <small *ngIf="loginForm.get('lastname')?.hasError('required')">Last Name is required</small>
-                    </div>
-           </div>
-           
+  
             <div class="form-group">
-              <label for="password">Password</label>
-                <input type="password" formControlName="password" id="pass" placeholder="Password" />
+                <label for="lastname">Last Name</label>
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                    <input type="text" formControlName="lastname" id="lastname" placeholder="Your Last Name" />
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('lastname')?.touched && loginForm.get('lastname')?.invalid">
+                    <small *ngIf="loginForm.get('lastname')?.hasError('required')">Last Name is required</small>
+                </div>
+            </div>
+  
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-icon">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" formControlName="password" id="password" placeholder="Password" />
+                </div>
                 <div class="text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-                     <small *ngIf="loginForm.get('password')?.hasError('required')">Password is  required</small>
+                    <small *ngIf="loginForm.get('password')?.hasError('required')">Password is required</small>
                     <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</small>
                 </div>
             </div>
-        
-          <div class="form-row">
-              <div class="col">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" formControlName="email" required>
-                  <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty" class="invalid-feedback">
-                      Please provide a valid email.
-                  </div>
-                  <div *ngIf="errMail.length != 0" class="invalid-feedback">
-                      Email already in use 
-                  </div>
-              </div>
-          </div>
-          <div class="form-group">
-            <label for="age">Age</label>
-            <input type="number" formControlName="age" id="age" placeholder="Your Age" />
-            <div class="text-danger" *ngIf="loginForm.get('age')?.touched && loginForm.get('age')?.invalid">
-                <small *ngIf="loginForm.get('age')?.hasError('required')">Age is required</small>
+  
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-icon">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" formControlName="email" id="email" placeholder="Your Email" />
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">
+                    <small>Email is required</small>
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')">
+                    <small>Invalid email format</small>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="tel">Tel</label>
-            <input type="tel" formControlName="tel" id="tel" placeholder="Your Phone Number" />
-            <div class="text-danger" *ngIf="loginForm.get('tel')?.touched && loginForm.get('tel')?.invalid">
-                <small *ngIf="loginForm.get('tel')?.hasError('required')">Phone Number is required</small>
+  
+            <div class="form-group">
+                <label for="age">Age</label>
+                <div class="input-icon">
+                    <i class="fas fa-birthday-cake"></i>
+                    <input type="number" formControlName="age" id="age" placeholder="Your Age" />
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('age')?.touched && loginForm.get('age')?.invalid">
+                    <small *ngIf="loginForm.get('age')?.hasError('required')">Age is required</small>
+                </div>
             </div>
-        </div>
-          
-          <button mat-raised-button style="background-color: #9A616D; border: none;margin-top: 10px; margin-right: 20px;">Ajouter</button>
-          <button type="button" style="background-color: rgba(2, 2, 2, 0.705); border: none;margin-top: 10px;">Annuler</button>
-      </form>
+  
+            <div class="form-group">
+                <label for="tel">Phone Number</label>
+                <div class="input-icon">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" formControlName="tel" id="tel" placeholder="Your Phone Number" />
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('tel')?.touched && loginForm.get('tel')?.invalid">
+                    <small *ngIf="loginForm.get('tel')?.hasError('required')">Phone Number is required</small>
+                </div>
+            </div>
+  
+            <div class="form-group">
+                <label for="address">Address</label>
+                <div class="input-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <input type="text" formControlName="address" id="address" placeholder="Your Address" />
+                </div>
+                <div class="text-danger" *ngIf="loginForm.get('address')?.touched && loginForm.get('address')?.invalid">
+                    <small *ngIf="loginForm.get('address')?.hasError('required')">Address is required</small>
+                </div>
+            </div>
+  
+            <button type="submit" class="btn green-btn">
+                <i class="fas fa-check"></i>
+                Submit
+            </button>
+            <button type="button" class="btn white-btn">
+                <i class="fas fa-times"></i>
+                Cancel
+            </button>
+        </form>
+    </div>
   </div>
-</div>

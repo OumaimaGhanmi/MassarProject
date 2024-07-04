@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="signin-form">
+        <form #f="ngForm">
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" [(ngModel)]="dataRandonneur.firstname" id="firstname" placeholder="Your First Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" [(ngModel)]="dataRandonneur.lastname" id="lastname" placeholder="Your Last Name" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" [(ngModel)]="dataRandonneur.email" id="email" placeholder="Your Email" />
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" name="age" [(ngModel)]="dataRandonneur.age" id="age" placeholder="Your Age" />
+            </div>
+
+            <div class="form-group">
+                <label for="tel">Phone Number</label>
+                <input type="tel" name="tel" [(ngModel)]="dataRandonneur.tel" id="tel" placeholder="Your Phone Number" />
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" [(ngModel)]="dataRandonneur.address" id="address" placeholder="Your Address" />
+            </div>
+
+            <button type="button" mat-raised-button style="background-color: #9A616D; border: none; margin-right: 20px;" data-bs-dismiss="modal" (click)="onEditRandonneur(f)">Modifier</button>
+            <button type="button" mat-raised-button data-bs-dismiss="modal">Annuler</button>
+        </form>
+    </div>
+</div>

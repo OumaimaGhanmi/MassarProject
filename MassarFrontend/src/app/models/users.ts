@@ -1,13 +1,13 @@
 import { RoleEnum } from "./role-enum";
 
 export class Users {
-    firstName ! :string;
-    lastName !:string;
+    firstname ! :string;
+    lastname !:string;
     password !:string;
     email !:string;
     age !:number;
     tel !:number;
     address!:string;
-    role !:RoleEnum;
+    role ?:RoleEnum;
     image !:string
 }

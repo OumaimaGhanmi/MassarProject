@@ -27,17 +27,18 @@ export class RandonneurServService {
     return this.http.post(url,randonneur)
 
   }
+  
 //operation deleteRandonneur 
 
   deleteRandonneur(idRandonneur:number):Observable<Randonneur>
   {
-  const url=this.baseUrl+"DeleteRandonneur/"+idRandonneur
+  const url=this.baseUrl+"deleteRandonneur/"+idRandonneur
    return this.http.delete<Randonneur>(url)
  }
- updateRandonneur(idRandonneur:number){ 
-  const url=this.baseUrl+"updateRandonneur/"+idRandonneur
-  return this.http.patch(url,idRandonneur)
-}
+
+ updateRandonneur(idRandonneur:number,randonneur:Randonneur){ 
+  return this.http.patch(this.baseUrl+"updateRandonneur/"+idRandonneur,randonneur)
+ }
 uploadUserImage(idRandonneur:any,image:File): Observable<HttpEvent<{}>> {
   const formData:FormData=new FormData();
   formData.append('image',image)
