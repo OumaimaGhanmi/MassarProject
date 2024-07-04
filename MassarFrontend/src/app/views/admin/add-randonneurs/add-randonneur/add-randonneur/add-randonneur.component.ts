@@ -1,11 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { NgForm, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,  Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpEventType, HttpResponse } from '@angular/common/http';
-import { Randonneur } from 'src/app/models/randonneur';
+
 import { RandonneurServService } from 'src/app/services/randonneur-serv.service';
-import { FileUploadServiceService } from 'src/app/services/file-upload-service.service';
+
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -17,38 +17,40 @@ export class AddRandonneurComponent implements OnInit {
   destoyed$ = new Subject<boolean>();
   
   messageErr=""
-  loginForm!: UntypedFormGroup;
+  loginForm!:FormGroup;
   errors!:string;
   idRandonneurDeleteConfirm=0
   dataRandonneur:any=[]
   randonneur!:any
   errorMsg : string=""
   idRandonneur:any
-constructor(private randonneurService:RandonneurServService,private router:Router,
-            private fb:UntypedFormBuilder,private http: HttpClient) { }
+constructor(private randonneurService:RandonneurServService,private router:Router, private http: HttpClient,
+            private formBuilder: FormBuilder) { }
 
 ngOnInit(): void {
   this.refreshRandonneursData();
-  this.loginForm=this.fb.group({
-    firstname:["",[Validators.required]],
-    lastname:["",[Validators.required]],
-    password:["",[Validators.required]],
-    email:["",[Validators.required,Validators.email]],
-    age:["",[Validators.required]],
-    tel:["",[Validators.required]],
-    
-   
-    adresse:["",[Validators.required]],
-  })
+  
   this.randonneurService.getRandonneur().subscribe(data=>{
   
     this.dataRandonneur=data
     
     
   })
+  this.initForm();
+  
 }
 
-  
+initForm(): void {
+  this.loginForm = this.formBuilder.group({
+    firstname: ['', Validators.required],
+    lastname: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    age: ['', Validators.required],
+    tel: ['', Validators.required],
+    address: ['', Validators.required]
+  });
+} 
 add() {
   let data = this.loginForm.value;
 

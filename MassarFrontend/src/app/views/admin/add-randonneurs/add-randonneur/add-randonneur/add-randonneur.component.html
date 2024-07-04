@@ -1,11 +1,11 @@
 <div class="card border-primary mb-3">
   <div class="card-header bg-primary text-white "> Edit Randonneur Component</div>
   <div class="card-body">
-      <h3 *ngIf="!editForm.get('idRandonneur').value; else update">Add Randonneur</h3>
+      <h3 *ngIf="!loginForm.get('idRandonneur').value; else update">Add Randonneur</h3>
       <ng-template #update>
           <h3>Update Randonneur</h3>
       </ng-template>
-      <form [formGroup]="editForm" (ngSubmit)="add()">
+      <form formGroup]="loginForm" (ngSubmit)="add()">
           <div class="form-group">
               <label for="firstName">FirstName</label>
               <div class="form-group">
@@ -36,7 +36,7 @@
           <div class="form-row">
               <div class="col">
                   <label for="email">Email</label>
-                  <input type="email" class="form-control" formControlName="email" required [ngClass]="{'is-invalid': (editForm.get('email').invalid && editForm.get('email').dirty) || (errMail.length != 0), 'is-valid': editForm.get('email').valid}">
+                  <input type="email" class="form-control" formControlName="email" required>
                   <div *ngIf="editForm.get('email').invalid && editForm.get('email').dirty" class="invalid-feedback">
                       Please provide a valid email.
                   </div>
@@ -59,20 +59,7 @@
                 <small *ngIf="registerForm.get('tel')?.hasError('required')">Phone Number is required</small>
             </div>
         </div>
-          <div class="form-group">
-              <div class="col">
-                  <img *ngIf="editForm.get('idRandonneur').value" [src]="editForm.get('image').value ? baseURL + 'storage/files/' + editForm.get('image').value : '../../assets/images/default-avatar.jpg'" class="img-responsive img-rounded" style="max-height: 50px; max-width: 50px;" alt="photo">
-                  <label class="btn btn-success p-0">
-                      <input type="file" (change)="selectFile($event)" />
-                  </label>
-                  <div *ngIf="currentFile" class="progress my-3">
-                      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
-                          {{ progress }}%
-                      </div>
-                  </div>
-              </div>
-              <div *ngIf="message" class="alert alert-secondary" role="alert">{{ message }}</div>
-          </div>
+          
           <button mat-raised-button style="background-color: #9A616D; border: none;margin-top: 10px; margin-right: 20px;">Ajouter</button>
           <button type="button" style="background-color: rgba(2, 2, 2, 0.705); border: none;margin-top: 10px;">Annuler</button>
       </form>
