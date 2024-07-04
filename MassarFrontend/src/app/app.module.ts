@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutsModule } from './layouts/layouts.module';
 import { GestionRandonneursComponent } from './views/admin/gestion-randonneurs/gestion-randonneurs.component';
 import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BaseURL } from './models/baseurl';
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { BaseURL } from './models/baseurl';
     AppRoutingModule,
     LayoutsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     

@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddRandonneurRoutingModule } from './add-randonneur-routing.module';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -15,7 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     AddRandonneurRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule
   ]

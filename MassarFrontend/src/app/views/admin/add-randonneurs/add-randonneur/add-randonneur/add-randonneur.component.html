@@ -1,35 +1,31 @@
-<div class="card border-primary mb-3">
-  <div class="card-header bg-primary text-white "> Edit Randonneur Component</div>
-  <div class="card-body">
-      <h3 *ngIf="!loginForm.get('idRandonneur').value; else update">Add Randonneur</h3>
-      <ng-template #update>
-          <h3>Update Randonneur</h3>
-      </ng-template>
-      <form formGroup]="loginForm" (ngSubmit)="add()">
+<div class="container">
+    <div class="signin-form">
+
+      <form [formGroup]="loginForm" (ngSubmit)="add()">
           <div class="form-group">
               <label for="firstName">FirstName</label>
               <div class="form-group">
                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                 <input type="text" formControlName="firstname"  id="name" placeholder="Your Name" />
-                <div class="text-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.invalid">
-                    <small *ngIf="registerForm.get('firstname')?.hasError('required')">First Name is required</small>
+                <div class="text-danger" *ngIf="loginForm.get('firstname')?.touched && loginForm.get('firstname')?.invalid">
+                    <small *ngIf="loginForm.get('firstname')?.hasError('required')">First Name is required</small>
                 </div> 
             </div>
           </div>
           <div class="form-group">
             <label for="lastname">LastName</label>
             <input type="text" formControlName="lastname" id="lastname" placeholder="Your LastName" class="form-control" />
-                    <div class="text-danger" *ngIf="editForm.get('lastname')?.touched && editForm.get('lastname')?.invalid">
-                        <small *ngIf="editForm.get('lastname')?.hasError('required')">Last Name is required</small>
+                    <div class="text-danger" *ngIf="loginForm.get('lastname')?.touched && loginForm.get('lastname')?.invalid">
+                        <small *ngIf="loginForm.get('lastname')?.hasError('required')">Last Name is required</small>
                     </div>
            </div>
            
             <div class="form-group">
               <label for="password">Password</label>
                 <input type="password" formControlName="password" id="pass" placeholder="Password" />
-                <div class="text-danger" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
-                     <small *ngIf="registerForm.get('password')?.hasError('required')">Password is  required</small>
-                    <small *ngIf="registerForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</small>
+                <div class="text-danger" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+                     <small *ngIf="loginForm.get('password')?.hasError('required')">Password is  required</small>
+                    <small *ngIf="loginForm.get('password')?.hasError('minlength')">Password must be at least 6 characters long</small>
                 </div>
             </div>
         
@@ -37,7 +33,7 @@
               <div class="col">
                   <label for="email">Email</label>
                   <input type="email" class="form-control" formControlName="email" required>
-                  <div *ngIf="editForm.get('email').invalid && editForm.get('email').dirty" class="invalid-feedback">
+                  <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty" class="invalid-feedback">
                       Please provide a valid email.
                   </div>
                   <div *ngIf="errMail.length != 0" class="invalid-feedback">
@@ -48,15 +44,15 @@
           <div class="form-group">
             <label for="age">Age</label>
             <input type="number" formControlName="age" id="age" placeholder="Your Age" />
-            <div class="text-danger" *ngIf="registerForm.get('age')?.touched && registerForm.get('age')?.invalid">
-                <small *ngIf="registerForm.get('age')?.hasError('required')">Age is required</small>
+            <div class="text-danger" *ngIf="loginForm.get('age')?.touched && loginForm.get('age')?.invalid">
+                <small *ngIf="loginForm.get('age')?.hasError('required')">Age is required</small>
             </div>
         </div>
         <div class="form-group">
             <label for="tel">Tel</label>
             <input type="tel" formControlName="tel" id="tel" placeholder="Your Phone Number" />
-            <div class="text-danger" *ngIf="registerForm.get('tel')?.touched && registerForm.get('tel')?.invalid">
-                <small *ngIf="registerForm.get('tel')?.hasError('required')">Phone Number is required</small>
+            <div class="text-danger" *ngIf="loginForm.get('tel')?.touched && loginForm.get('tel')?.invalid">
+                <small *ngIf="loginForm.get('tel')?.hasError('required')">Phone Number is required</small>
             </div>
         </div>
           

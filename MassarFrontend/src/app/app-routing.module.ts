@@ -13,6 +13,9 @@ const routes: Routes = [
     },
     {
       path:'about',loadChildren: () => import('./views/front/about/about.module').then(m =>m.AboutModule)
+    },
+    {
+      path:'addRandonneur',loadChildren: () => import('./views/admin/add-randonneurs/add-randonneur/add-randonneur.module').then(m =>m.AddRandonneurModule)
     }
    
   ]},
@@ -26,9 +29,7 @@ const routes: Routes = [
     {
       path:'GestionRandonneurs',loadChildren: () => import('./views/admin/gestion-randonneurs/gestion-randonneurs.module').then(m =>m.GestionRandonneursModule)
     },
-    {
-      path:'addRandonneur',loadChildren: () => import('./views/admin/add-randonneurs/add-randonneur/add-randonneur.module').then(m =>m.AddRandonneurModule)
-    }
+    
   ]}
 ];
 
