@@ -9,7 +9,7 @@
           <button
             type="button"
             class="btn"
-            routerLink="admin/addRandonneur"
+            routerLink="/admin/addRandonneur"
             style="background-color: green; color: white; font-weight: bold;"
             onmouseover="this.style.backgroundColor='white'; this.style.color='green';"
             onmouseout="this.style.backgroundColor='green'; this.style.color='white';"
@@ -69,8 +69,9 @@
                     <button
                       type="button"
                       style="background-color: green; display: inline-block;"
+                      routerLink="/admin/editRandonneur"
                       (click)="getdata(randonneur.idRandonneur,randonneur.firstname, randonneur.lastname,randonneur.email, randonneur.age,randonneur.tel,randonneur.address)"
-                      routerLink="admin/editRandonneur"
+                     
                       >
                       Modifier
                     </button>
